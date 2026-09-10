@@ -37,7 +37,8 @@ def index(request):
 
 
 def songs(request):
-    songs = {"songs":[{"id":1,"title":"duis faucibus accumsan odio curabitur convallis","lyrics":"Morbi non lectus. Aliquam sit amet diam in magna bibendum imperdiet. Nullam orci pede, venenatis non, sodales sed, tincidunt eu, felis."}]}
+   # songs = {"songs":[{"id":1,"title":"duis faucibus accumsan odio curabitur convallis","lyrics":"Morbi non lectus. Aliquam sit amet diam in magna bibendum imperdiet. Nullam orci pede, venenatis non, sodales sed, tincidunt eu, felis."}]}
+    songs = req.get("http://songs-sn-labs-valdirsouzaj.labs-prod-openshift-san-a45631dc5778dc6371c67d206ba9ae5c-0000.us-east.containers.appdomain.cloud/song").json()
     return render(request, "songs.html", {"songs":songs["songs"]})
 
 
@@ -45,7 +46,7 @@ def songs(request):
 def photos(request):
     photos = [{
     "id": 1,
-    "pic_url": "http://dummyimage.com/136x100.png/5fa2dd/ffffff",
+    "pic_url": "https://pictures.2el0xz5iswgy.us-south.codeengine.appdomain.cloud/picture",
     "event_country": "United States",
     "event_state": "District of Columbia",
     "event_city": "Washington",
